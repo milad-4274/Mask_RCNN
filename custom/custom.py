@@ -62,10 +62,10 @@ class CustomDataset(utils.Dataset):
         subset: Subset to load: train or val
         """
         # Add classes. We have only one class to add.
-        self.add_class("class", 1, "laugh")
-        self.add_class("class", 2, "close")
-        self.add_class("class", 3, "open")
-        self.add_class("class", 4, "pucker")
+        self.add_class("class", 1, "l")
+        self.add_class("class", 2, "c")
+        self.add_class("class", 3, "o")
+        self.add_class("class", 4, "p")
  
         # Train or validation dataset?
         assert subset in ["train", "val"]
@@ -103,7 +103,7 @@ class CustomDataset(utils.Dataset):
             polygons = [r['shape_attributes'] for r in a['regions']]
             objects = [s['region_attributes']['class'] for s in a['regions']]
             print("objects:",objects)
-            name_dict = {"laugh": 1,"close": 2,"open":3, "pucker":4}
+            name_dict = {"l": 1,"c": 2,"o":3, "p":4}
             # key = tuple(name_dict)
             num_ids = [name_dict[a] for a in objects]
  
